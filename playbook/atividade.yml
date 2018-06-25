@@ -1,0 +1,18 @@
+---
+
+- name: Criando um RESOLV.CONF
+  hosts: all
+  tasks:
+   - name: resolv.conf
+     copy:
+      src: resolv.conf
+      dest: /etc/
+
+- name: Instalacao de pacotes
+  hosts: docker devops
+  tasks:
+   - name: vim htop sysstat
+     apt: name=vim state=present update_cache=yes
+     apt: name=htop state=present update_cache=yes
+     apt: name=sysstat state=present update_cache=yes
+        

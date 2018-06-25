@@ -1,0 +1,16 @@
+---
+
+- name: Meu Primeiro Playbook
+  hosts: all
+  tasks: 
+   - name: Enviar o teste para o tmp
+     copy:
+      src: teste
+      dest: /tmp/
+
+- name: Instalar o pacote SL
+  hosts: devops docker
+  tasks: 
+   - name: Instalar o SL
+     apt: name=sl state=present update_cache=yes
+

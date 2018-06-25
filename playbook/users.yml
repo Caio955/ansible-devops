@@ -1,0 +1,14 @@
+---
+
+#playbook para criar usuario
+
+- name: Criando usuario no servidor
+  hosts: all
+  vars:
+   - username: sysadmin
+  tasks:
+   - name: Criando o usuraio no servidor
+     user:
+      name: "{{ username }}"
+      shell: /bin/bash
+      createhome: yes
